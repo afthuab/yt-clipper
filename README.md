@@ -80,3 +80,8 @@ To create a standalone `.exe` file that can be shared and run on other Windows c
 
 ```bash
 pyinstaller build.spec
+```
+##
+ Made with ❤️ by **afthuab**.
+
+-   **GitHub:** [afthuab](https://github.com/afthuab)
