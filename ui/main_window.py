@@ -76,15 +76,14 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("YouTube Clipper")
         self.setGeometry(100, 100, 600, 700)
-        self.set_theme(self.current_theme)
-
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
         self.main_layout = QVBoxLayout(self.central_widget)
         self.main_layout.setContentsMargins(20, 20, 20, 20)
         self.main_layout.setSpacing(15)
 
-        self.init_ui()
+        self.init_ui() # Create all the UI elements first...
+        self.set_theme(self.current_theme)
 
     def init_ui(self):
         title = QLabel("YouTube Clipper")
@@ -154,6 +153,24 @@ class MainWindow(QMainWindow):
         self.status_label.setWordWrap(True)
         self.main_layout.addWidget(self.status_label)
         
+        
+        footer_label = QLabel()
+        footer_label.setAlignment(Qt.AlignCenter)
+        footer_label.setFont(QFont("Segoe UI", 8))
+
+        github_username = "afthuab"
+
+        footer_label.setText(
+            f"""<a style="color: #888DA0; text-decoration: none;" 
+               href="https://github.com/afthuab">
+               Made with ❤️ by afthuab
+            </a>"""
+        )
+        
+        footer_label.setOpenExternalLinks(True) 
+        
+        self.main_layout.addWidget(footer_label)
+
         self.main_layout.addStretch()
 
         self.theme_button = QPushButton("Toggle Theme")
